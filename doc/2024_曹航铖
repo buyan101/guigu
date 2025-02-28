@@ -1,0 +1,72 @@
+#include <iostream>
+using namespace std;
+
+void printSolidSquare(int size, char ch) {
+    for(int i = 0; i < size; i++) {
+        for(int j = 0; j < size; j++) {
+            cout << ch << " ";
+        }
+        cout << endl;
+    }
+}
+
+void printHollowSquare(int size, char ch) {
+    for(int i = 0; i < size; i++) {
+        for(int j = 0; j < size; j++) {
+            if(i == 0 || i == size-1 || j == 0 || j == size-1)
+                cout << ch << " ";
+            else
+                cout << "  ";
+        }
+        cout << endl;
+    }
+}
+
+int main() {
+    int choice, size;
+    char symbol;
+
+    cout << "请选择模式：\n1. 实心方块\n2. 空心方块\n选择：";
+    cin >> choice;
+    
+    cout << "输入方块尺寸（3-20）：";
+    cin >> size;
+    
+    cout << "输入组成符号（单个字符）：";
+    cin >> symbol;
+
+    if(size < 3 || size > 20) {
+        cout << "错误：尺寸需在3-20之间！" << endl;
+        return 1;
+    }
+
+    switch(choice) {
+        case 1:
+            printSolidSquare(size, symbol);
+            break;
+        case 2:
+            printHollowSquare(size, symbol);
+            break;
+        default:
+            cout << "无效选择！" << endl;
+            return 1;
+    }
+    
+    return 0;
+}
+说名：
+# 方块图案生成器
+
+## 功能
+- 生成自定义尺寸（3-20）的方块图案
+- 支持两种模式：实心方块 / 空心方块
+- 可自定义组成符号（任意单个字符）
+
+## 环境要求
+- C++编译器（推荐使用 g++）
+
+## 配置与使用
+
+### 编译程序
+```bash
+g++ square_pattern.cpp -o square

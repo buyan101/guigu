@@ -1,0 +1,24 @@
+#include<stdio.h>
+/*该程序用来加密字符串*/
+int main(){
+    int i,j;
+    char a[81];
+    gets(a);
+    puts(a);
+    for(i=0;a[i]!='\0';i++){
+        if((a[i]>='a'&&a[i]<='x')||(a[i]>='A'&&a[i]<='X')){
+            printf("%c",a[i]+2);
+        }
+        else if(a[i]=='y')
+            printf("%c",'a');
+        else if(a[i]=='z')
+            printf("%c",'b');
+        else if(a[i]=='Y')
+            printf("%c",'A');
+        else if(a[i]=='Z')
+            printf("%c",'B');
+        else
+        printf("%c",a[i]);
+    }
+    return 0;
+}
